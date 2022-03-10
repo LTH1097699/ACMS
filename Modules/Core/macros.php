@@ -295,6 +295,25 @@ Form::macro('normalTextarea', function ($name, $title, ViewErrorBag $errors, $ob
 
     return new HtmlString($string);
 });
+//use form control
+Form::macro('normalTextareaFormControl', function ($name, $title, ViewErrorBag $errors, $object = null, array $options = []) {
+    $options = array_merge(['class' => 'form-control', 'rows' => 10, 'cols' => 10], $options);
+
+    $string = "<div class='form-group " . ($errors->has($name) ? ' has-error' : '') . "'>";
+    $string .= Form::label($name, $title);
+
+    if (is_object($object)) {
+        $currentData = $object->{$name} ?: '';
+    } else {
+        $currentData = null;
+    }
+
+    $string .= Form::textarea($name, old($name, $currentData), $options);
+    $string .= $errors->first($name, '<span class="help-block">:message</span>');
+    $string .= '</div>';
+
+    return new HtmlString($string);
+});
 
 /*
  * Add a checkbox input field
