@@ -49,6 +49,7 @@ class chuyennoibotctController extends AdminBaseController
     {
         $manhanvien = $request->only(['manhanvien']);
         $data2=$request->only(['ma_donvi']);
+<<<<<<< HEAD
        
         $thongtinnhanvien->where('ma_nhanvien','=',$manhanvien)->update($data2);
 
@@ -59,6 +60,16 @@ class chuyennoibotctController extends AdminBaseController
        
 
         return redirect()->route('admin.phatsinhtang.chuyennoibotct.create');
+=======
+        $thongtinnhanvien->where('ma_nhanvien','=',$manhanvien)->update($data2);
+// $request->only(['ma_donvi']));
+        echo "<pre/>";
+       var_dump($manhanvien);
+       
+
+        // return redirect()->route('admin.phatsinhtang.thongtinnhanvien.index')
+        // ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('phatsinhtang::thongtinnhanviens.title.thongtinnhanviens')]));
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
     }
 
     /**
@@ -68,7 +79,11 @@ class chuyennoibotctController extends AdminBaseController
      */
     public function index()
     {
+<<<<<<< HEAD
         $thongtinnhanviens = $this->thongtinnhanvien->all();
+=======
+        $thongtinnhanviens = $this->chucdanh->all();
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
 
         return view('phatsinhtang::admin.chuyennoibotcts.index', compact('thongtinnhanviens'));
     }
@@ -83,10 +98,16 @@ class chuyennoibotctController extends AdminBaseController
 
         $noibotcts = $this->noibotct->all();
         $chucdanhs = $this->chucdanh->all();
+<<<<<<< HEAD
         // $thongtinnhanviens = $this->chucdanh->all();
 
 
         return view('phatsinhtang::admin.chuyennoibotcts.create',compact('noibotcts','chucdanhs'));
+=======
+        $thongtinnhanviens = $this->chucdanh->all();
+
+        return view('phatsinhtang::admin.chuyennoibotcts.create',compact('noibotcts','chucdanhs','thongtinnhanviens'));
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
     }
 
     /**

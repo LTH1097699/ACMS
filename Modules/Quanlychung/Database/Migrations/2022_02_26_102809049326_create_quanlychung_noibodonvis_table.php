@@ -10,6 +10,7 @@ class CreateQuanlychungnoibodonvisTable extends Migration
      *
      * @return void
      */
+<<<<<<< HEAD
     public function up()
     {
         Schema::create('noibodonvi', function (Blueprint $table) {
@@ -22,6 +23,20 @@ class CreateQuanlychungnoibodonvisTable extends Migration
             $table->timestamps();
         });
     }
+=======
+    // public function up()
+    // {
+    //     Schema::create('noibodonvi', function (Blueprint $table) {
+    //         $table->engine = 'InnoDB';
+    //         $table->increments('id');
+            
+    //         $table->string('tencongviec');
+
+
+    //         $table->timestamps();
+    //     });
+    // }
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
 
     /**
      * Reverse the migrations.

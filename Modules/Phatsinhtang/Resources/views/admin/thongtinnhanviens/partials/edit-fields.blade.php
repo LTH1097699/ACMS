@@ -16,7 +16,11 @@
     {!! Form::normalInput('tongiao', 'Ton giao', $errors, $thongtinnhanvien) !!}
     {!! Form::normalInput('dantocthieuso', 'Dan toc thieu so', $errors, $thongtinnhanvien) !!}
 
+<<<<<<< HEAD
     {!! Form::normalTextarea('diachi', 'Dia chi thuong tru', $errors, $thongtinnhanvien ) !!}
+=======
+    {!! Form::normalTextareaFormControl('diachi', 'Dia chi thuong tru', $errors, $thongtinnhanvien ) !!}
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
     {!! Form::normalInput('chuyenmon', 'Chuyen mon', $errors, $thongtinnhanvien) !!}
 
     {!! Form::normalInput('trinhdo', 'Trinh do', $errors, $thongtinnhanvien) !!}

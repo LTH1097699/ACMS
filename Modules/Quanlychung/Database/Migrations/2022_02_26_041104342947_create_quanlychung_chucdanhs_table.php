@@ -10,6 +10,7 @@ class CreateQuanlychungChucdanhsTable extends Migration
      *
      * @return void
      */
+<<<<<<< HEAD
      public function up()
      {
          Schema::create('chucdanh', function (Blueprint $table) {
@@ -22,6 +23,20 @@ class CreateQuanlychungChucdanhsTable extends Migration
             $table->timestamps();
         });
     }
+=======
+    // public function up()
+    // {
+    //     Schema::create('chucdanh', function (Blueprint $table) {
+    //         $table->engine = 'InnoDB';
+    //         $table->increments('id');
+    //         // Your fields
+    //         $table->string('machucdanh', 50);
+    //         $table->string('tenchucdanh');
+
+    //         $table->timestamps();
+    //     });
+    // }
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
 
     /**
      * Reverse the migrations.

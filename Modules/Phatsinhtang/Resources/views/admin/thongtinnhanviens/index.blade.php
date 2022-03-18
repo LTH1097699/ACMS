@@ -33,7 +33,11 @@
                                 <th>ho va ten</th>
                                 <th>gioi tinh</th>
                                 <th>Dia chi</th>
+<<<<<<< HEAD
                                 
+=======
+
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
                                 <th>{{ trans('core::core.table.created at') }}</th>
                                 <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                             </tr>
@@ -55,9 +59,13 @@
 
                                 <td>
                                     <a href="{{ route('admin.phatsinhtang.thongtinnhanvien.edit', [$thongtinnhanvien->id]) }}">
+<<<<<<< HEAD
                                         
                                         <pre>{{ strip_tags($thongtinnhanvien->diachi) }}</pre>
                                         
+=======
+                                        {{ $thongtinnhanvien->diachi }}
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
                                     </a>
                                 </td>
                                 <td>
@@ -65,7 +73,10 @@
                                         {{ $thongtinnhanvien->created_at }}
                                     </a>
                                 </td>
+<<<<<<< HEAD
                                 
+=======
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('admin.phatsinhtang.thongtinnhanvien.edit', [$thongtinnhanvien->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
@@ -134,5 +145,8 @@
             });
         });
     </script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> aadb171b943f5cb462414c70ba65c372278224be
 @endpush
