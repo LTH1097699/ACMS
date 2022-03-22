@@ -32,6 +32,7 @@ class Thongtinnhanvien extends Model
         'mucluonghientai',
         'ma_donvi',
         'ma_chucdanh',
+        'idtrangthai',
 
     ];
 

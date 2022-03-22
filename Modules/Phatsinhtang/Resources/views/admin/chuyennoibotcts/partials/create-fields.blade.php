@@ -1,12 +1,10 @@
 <div class="box-body">
     <p>
-        chuyen noi bo tct
+        Chuyển nội bộ TCT
     </p>
-<<<<<<< HEAD
+
     {!! Form::normalInput('manhanvien', 'Mã nhân viên', $errors) !!}
-=======
-    {{-- {!! Form::normalInput('manhanvien', 'Mã nhân viên', $errors) !!} --}}
->>>>>>> aadb171b943f5cb462414c70ba65c372278224be
+
 
  {{--    <div class="form-group">
         {!! Form::Label('ma_donvi', 'Mã chức danh') !!}
@@ -16,10 +14,6 @@
         @endforeach
     </select>
 </div> --}}
-<<<<<<< HEAD
-=======
-{!! Form::text('manhanvien','asdfa') !!}
->>>>>>> aadb171b943f5cb462414c70ba65c372278224be
 
 
 <div class="form-group">

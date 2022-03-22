@@ -13,6 +13,6 @@ class trangthai extends Model
    
     protected $fillable = [
         "name",
-        "note",
+        
     ];
 }

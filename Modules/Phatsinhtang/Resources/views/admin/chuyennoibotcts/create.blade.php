@@ -35,11 +35,7 @@
         </div>
     </div>
     {!! Form::close() !!}
-<<<<<<< HEAD
- 
-              
-=======
->>>>>>> aadb171b943f5cb462414c70ba65c372278224be
+
 @stop
 
 @section('footer')

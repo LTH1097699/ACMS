@@ -2,6 +2,6 @@
     <p>
         Your fields //
     </p>
-    {!! Form::normalInput('name', 'Ten trang thai', $errors) !!}
-    {!! Form::normalTextareaFormControl('note', 'Ghi chu', $errors) !!}
+    {!! Form::normalInput('name', 'Tên trạng thái', $errors) !!}
+ 
 </div>

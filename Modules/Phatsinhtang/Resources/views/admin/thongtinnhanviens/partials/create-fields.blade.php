@@ -1,40 +1,43 @@
 <div class="box-body">
-    <p>
-        Your fields //
-    </p>
+   
     {!! Form::normalInput('ma_nhanvien', 'Mã nhân viên', $errors) !!}
-    {!! Form::normalInput('hovaten', 'Ho va ten', $errors) !!}
-    {!! Form::normalInput('gioitinh', 'Gioi tinh', $errors) !!}
+    {!! Form::normalInput('hovaten', 'Họ và tên', $errors) !!}
+    {!! Form::normalInput('gioitinh', 'Giới tính', $errors) !!}
 
-    {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaysinh', 'ngay sinh', $errors) !!}
+    {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaysinh', 'Ngày sinh', $errors) !!}
 
     {!! Form::normalInput('cmnd', 'CMND', $errors) !!}
-    {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaycap', 'Ngay cap', $errors) !!}
-    {!! Form::normalInput('noicap', 'Noi cap', $errors) !!}
+    {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaycap', 'Ngày cấp', $errors) !!}
+    {!! Form::normalInput('noicap', 'Nơi cấp', $errors) !!}
 
-    {!! Form::normalInput('tongiao', 'Ton giao', $errors) !!}
-    {!! Form::normalInput('dantocthieuso', 'Dan toc thieu so', $errors) !!}
+    {!! Form::normalInput('tongiao', 'Tôn giáo', $errors) !!}
+    {!! Form::normalInput('dantocthieuso', 'Dân tộc thiểu số', $errors) !!}
+    {!! Form::normalTextarea('diachi', 'Địa chỉ thường trú', $errors) !!}
 
-<<<<<<< HEAD
-    {!! Form::normalTextarea('diachi', 'Dia chi thuong tru', $errors) !!}
-=======
-    {!! Form::normalTextareaFormControl('diachi', 'Dia chi thuong tru', $errors) !!}
->>>>>>> aadb171b943f5cb462414c70ba65c372278224be
-    {!! Form::normalInput('chuyenmon', 'Chuyen mon', $errors) !!}
+    {!! Form::normalInput('chuyenmon', 'Chuyên môn', $errors) !!}
 
-    {!! Form::normalInput('trinhdo', 'Trinh do', $errors) !!}
+    {!! Form::normalInput('trinhdo', 'Trình độ', $errors) !!}
 
-    {!! Form::normalInput('vanbang_chungchi', 'Van bang, chung chi', $errors) !!}
+    {!! Form::normalInput('vanbang_chungchi', 'Văn bằng, chứng chỉ', $errors) !!}
 
-    {!! Form::normalInput('trinhdo', 'Trinh do', $errors) !!}
+  
 
-    {{-- {!! Form::normalSelect('ma_donvi', 'Ma don vi', $errors, $chuyennoibotcts) !!} --}}
+    
 
   <div class="form-group">
-  {!! Form::Label('ma_donvi', 'Item:') !!}
+  {!! Form::Label('ma_donvi', 'Mã đơn vị') !!}
   <select class="form-control" name="ma_donvi">
     @foreach($noibotcts as $noibotct)
       <option value="{{$noibotct->madonvi}}">{{$noibotct->tendonvi}}</option>
+    @endforeach
+  </select>
+</div>
+
+<div class="form-group">
+  {!! Form::Label('idtrangthai', 'Trạng thái') !!}
+  <select class="form-control" name="idtrangthai">
+    @foreach($trangthais as $trangthai)
+      <option value="{{$trangthai->id}}">{{$trangthai->name}}</option>
     @endforeach
   </select>
 </div>

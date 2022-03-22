@@ -6,6 +6,7 @@ use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
+
 class SentinelGroupSeedTableSeeder extends Seeder
 {
     /**

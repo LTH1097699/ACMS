@@ -5,12 +5,13 @@ namespace Modules\Phatsinhtang\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Phatsinhtang\Entities\Thongtinnhanvien;
-
+use Modules\Phatsinhtang\Entities\trangthai;
 use Modules\Quanlychung\Entities\noibotct;
 
 use Modules\Phatsinhtang\Http\Requests\CreateThongtinnhanvienRequest;
 use Modules\Phatsinhtang\Http\Requests\UpdateThongtinnhanvienRequest;
 use Modules\Phatsinhtang\Repositories\ThongtinnhanvienRepository;
+use Modules\Phatsinhtang\Repositories\trangthaiRepository;
 use Modules\Quanlychung\Repositories\noibotctRepository;
 
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -22,21 +23,20 @@ class ThongtinnhanvienController extends AdminBaseController
      */
     private $thongtinnhanvien;
     private $noibotct;
+    private $trangthai;
 
 
     public function __construct(ThongtinnhanvienRepository $thongtinnhanvien,
-                                noibotctRepository $noibotct)
+                                noibotctRepository $noibotct,
+                                trangthaiRepository $trangthai)
     {
         parent::__construct();
 
         $this->thongtinnhanvien = $thongtinnhanvien;
         $this->noibotct = $noibotct;
+        $this->trangthai= $trangthai;
         
     }
-    // private function getMenuTct($menu)
-    // {
-    //     return $menu->menuTct()->where('is_root', '!=', true)->get()->nest()->listsFlattened('tendonvi');
-    // }
 
 
     /**
@@ -59,10 +59,9 @@ class ThongtinnhanvienController extends AdminBaseController
     public function create()
     {
         $noibotcts = $this->noibotct->all(['madonvi', 'tendonvi']);
-        // $menuSelect = $this->getMenuTct($menu);
-        // $chuyennoibotct = Subject::all()->toArray();
-
-        return view('phatsinhtang::admin.thongtinnhanviens.create', compact('noibotcts'));
+        
+        $trangthais = $this->trangthai->all();
+        return view('phatsinhtang::admin.thongtinnhanviens.create', compact('noibotcts','trangthais'));
     }
 
     /**
@@ -88,7 +87,8 @@ class ThongtinnhanvienController extends AdminBaseController
     public function edit(Thongtinnhanvien $thongtinnhanvien)
     {
         $noibotcts = $this->noibotct->all(['madonvi', 'tendonvi']);
-        return view('phatsinhtang::admin.thongtinnhanviens.edit', compact('thongtinnhanvien','noibotcts'));
+        $trangthais = $this->trangthai->all();
+        return view('phatsinhtang::admin.thongtinnhanviens.edit', compact('thongtinnhanvien','noibotcts','trangthais'));
     }
 
     /**

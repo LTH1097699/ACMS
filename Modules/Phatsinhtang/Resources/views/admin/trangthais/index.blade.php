@@ -30,7 +30,7 @@
                             <thead>
                             <tr>
                                 <th>ten</th>
-                                <th>ghi chu</th>
+                                
                                 <th>{{ trans('core::core.table.created at') }}</th>
                                 <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                             </tr>
@@ -44,11 +44,7 @@
                                         {{ $trangthai->name }}
                                     </a>
                                 </td>
-                                <td>
-                                    <a href="{{ route('admin.phatsinhtang.trangthai.edit', [$trangthai->id]) }}">
-                                        {{ $trangthai->note }}
-                                    </a>
-                                </td>
+                                
                                 <td>
                                     <a href="{{ route('admin.phatsinhtang.trangthai.edit', [$trangthai->id]) }}">
                                         {{ $trangthai->created_at }}
@@ -67,7 +63,7 @@
                             <tfoot>
                             <tr>
                                 <th>ten</th>
-                                <th>ghi chu</th>
+                                
                                 <th>{{ trans('core::core.table.created at') }}</th>
                                 <th>{{ trans('core::core.table.actions') }}</th>
                             </tr>
