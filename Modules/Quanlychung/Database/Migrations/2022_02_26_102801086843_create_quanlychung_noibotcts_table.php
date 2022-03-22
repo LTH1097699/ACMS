@@ -9,7 +9,7 @@ class CreateQuanlychungnoibotctsTable extends Migration
      * Run the migrations.
      *
      * @return void
-<<<<<<< HEAD
+
      */
     public function up()
     {
@@ -23,7 +23,7 @@ class CreateQuanlychungnoibotctsTable extends Migration
             $table->timestamps();
         });
     }
-=======
+
     //  */
     // public function up()
     // {
@@ -37,7 +37,7 @@ class CreateQuanlychungnoibotctsTable extends Migration
     //         $table->timestamps();
     //     });
     // }
->>>>>>> aadb171b943f5cb462414c70ba65c372278224be
+
 
     /**
      * Reverse the migrations.

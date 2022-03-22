@@ -35,7 +35,7 @@ class CreatePhatsinhtangThongtinnhanviensTable extends Migration
             $table->string('mangach',50);
             $table->float('mucluonghientai');
             $table->integer('ma_donvi');
-
+            $table->integer('ma_trangthai');
 
             $table->timestamps();
         });

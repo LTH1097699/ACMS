@@ -104,7 +104,7 @@
 </div>
 
 
-
+//van bang
 <div id="dynamicCheck">
    <input type="button" value="Create Element" onclick="createNewElement();"/>
 </div>

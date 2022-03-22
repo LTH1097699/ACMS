@@ -75,6 +75,15 @@ class RegisterQuanlychungSidebar implements \Maatwebsite\Sidebar\SidebarExtender
                     $this->auth->hasAccess('quanlychung.noibodonvis.index')
                 );               
             });
+            $group->item(trans('phatsinhtang::trangthais.title.trangthais'), function (Item $item) {
+                $item->icon('fa fa-copy');
+                $item->weight(4);
+                $item->route('admin.phatsinhtang.trangthai.index');
+                $item->authorize(
+                     /* append */
+                    $this->auth->hasAccess('phatsinhtang.trangthais.index')
+                );               
+            });
 
         });
 

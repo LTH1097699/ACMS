@@ -10,7 +10,7 @@ class CreateQuanlychungPhongbansTable extends Migration
      *
      * @return void
      */
-<<<<<<< HEAD
+
     public function up()
     {
         Schema::create('phongban', function (Blueprint $table) {
@@ -25,7 +25,7 @@ class CreateQuanlychungPhongbansTable extends Migration
             $table->timestamps();
         });
     }
-=======
+
     // public function up()
     // {
     //     Schema::create('phongban', function (Blueprint $table) {
@@ -40,7 +40,7 @@ class CreateQuanlychungPhongbansTable extends Migration
     //         $table->timestamps();
     //     });
     // }
->>>>>>> aadb171b943f5cb462414c70ba65c372278224be
+
 
     /**
      * Reverse the migrations.

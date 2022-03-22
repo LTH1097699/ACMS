@@ -58,15 +58,7 @@ class RegisterPhatsinhtangSidebar implements \Maatwebsite\Sidebar\SidebarExtende
                      $this->auth->hasAccess('phatsinhtang.chuyennoibotcts.create')
                 );
             });
-            $group->item(trans('phatsinhtang::trangthais.title.trangthais'), function (Item $item) {
-                $item->icon('fa fa-copy');
-                $item->weight(2);
-                $item->route('admin.phatsinhtang.trangthai.index');
-                $item->authorize(
-                     /* append */
-                    $this->auth->hasAccess('phatsinhtang.trangthais.index')
-                );               
-            });
+            
             
         });
 
