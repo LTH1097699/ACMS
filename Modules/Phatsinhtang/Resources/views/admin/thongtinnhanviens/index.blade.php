@@ -9,7 +9,12 @@
         <li class="active">{{ trans('phatsinhtang::thongtinnhanviens.title.thongtinnhanviens') }}</li>
     </ol>
 @stop
+<?php
 
+
+$arrayGioiTinh = array("nam","nu");
+
+?>
 @section('content')
     <div class="row">
         <div class="col-xs-12">
@@ -49,7 +54,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.phatsinhtang.thongtinnhanvien.edit', [$thongtinnhanvien->id]) }}">
-                                        {{ $thongtinnhanvien->gioitinh }}
+                                        {{ $arrayGioiTinh[$thongtinnhanvien->gioitinh] }}
                                     </a>
                                 </td>
 

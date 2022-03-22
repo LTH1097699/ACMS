@@ -1,41 +1,97 @@
 <div class="box-body">
- 
+   <?php
 
-    {!! Form::normalInput('ma_nhanvien', 'Mã nhân viên', $errors, $thongtinnhanvien) !!}
-    {!! Form::normalInput('hovaten', 'Họ và tên', $errors, $thongtinnhanvien) !!}
-    {!! Form::normalInput('gioitinh', 'Giới tính', $errors, $thongtinnhanvien) !!}
+   $arrayGioiTinh = array("nam","nu");
 
-    {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaysinh', 'Ngày sinh', $errors, $thongtinnhanvien) !!}
+?>
+<div class="box-body">
+  <div class="container-fluid" style="border-bottom-style: ridge;">
+      <div class="row">
+        <div class="col-sm-3">
+            {!! Form::normalInput('ma_nhanvien', 'Mã nhân viên', $errors,$thongtinnhanvien ) !!}    
+        </div>
+    </div>
 
-    {!! Form::normalInput('cmnd', 'CMND', $errors, $thongtinnhanvien) !!}
-    {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaycap', 'Ngày cấp ()', $errors, $thongtinnhanvien) !!}
-    {!! Form::normalInput('noicap', 'Nơi cấp', $errors, $thongtinnhanvien) !!}
+    <div class="row">
+        <div class="col-sm-3">
+            {!! Form::normalInput('hovaten', 'Ho va ten', $errors,$thongtinnhanvien) !!}
+        </div>
+        <div class="col-sm-3">
+            {!! Form::normalSelect('gioitinh', 'Gioi tinh', $errors,$arrayGioiTinh,$thongtinnhanvien) !!}
 
-    {!! Form::normalInput('tongiao', 'Tôn giáo', $errors, $thongtinnhanvien) !!}
-    {!! Form::normalInput('dantocthieuso', 'Dân tộc thiểu số', $errors, $thongtinnhanvien) !!}
+        </div>
+        <div class="col-sm-3">
+            {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaysinh', 'ngay sinh', $errors,$thongtinnhanvien) !!}
 
-    {!! Form::normalTextarea('diachi', 'Địa chỉ thường trú', $errors, $thongtinnhanvien ) !!}
 
-    {!! Form::normalInput('chuyenmon', 'Chuyên môn', $errors, $thongtinnhanvien) !!}
 
-    {!! Form::normalInput('trinhdo', 'Trình độ', $errors, $thongtinnhanvien) !!}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            {!! Form::normalTextareaFormControl('diachi', 'Dia chi thuong tru', $errors,$thongtinnhanvien) !!}
+        </div>
+    </div>
+</div>  
+</div>
+<div class="container-fluid" style="border-bottom-style: ridge; margin-top: 15px;">
+  <div class="row">
 
-    {!! Form::normalInput('vanbang_chungchi', 'Văn bằng, chứng chỉ', $errors, $thongtinnhanvien) !!}
+      <div class="col-sm-3">
+          {!! Form::normalInput('cmnd', 'CMND', $errors,$thongtinnhanvien) !!}
+      </div>
+      <div class="col-sm-3">
+          {!! Form::normalInputOfType(date('d-m-Y H:i:s'),'ngaycap', 'Ngay cap', $errors,$thongtinnhanvien) !!}
 
-  
+      </div>
+      <div class="col-sm-3">
+          {!! Form::normalInput('noicap', 'Noi cap', $errors,$thongtinnhanvien) !!}
+      </div>
+  </div>
+</div>
+<div class="container-fluid" style="border-bottom-style: ridge; margin-top: 15px;">
+  <div class="row">
 
-    <div class="form-group link-type-depended link-page">
-     {!! Form::Label('ma_donvi', 'Mã đơn vị') !!}
-    <select class="form-control" name="ma_donvi" id="ma_donvi">
-        <option value=""></option>
-        @foreach ($noibotcts as $noibotct)
-            <option value="{{ $noibotct->madonvi }}" {{ $thongtinnhanvien->ma_donvi == $noibotct->madonvi ? 'selected' : '' }}>
-                {{ $noibotct->tendonvi }}
-            </option>
-        @endforeach
-    </select>
+      <div class="col-sm-3">
+          {!! Form::normalInput('tongiao', 'Ton giao', $errors,$thongtinnhanvien) !!}
+      </div>
+      <div class="col-sm-3">
+          {!! Form::normalInput('dantocthieuso', 'Dan toc thieu so', $errors,$thongtinnhanvien) !!} 
 
-    <div class="form-group link-type-depended link-page">
+      </div>
+
+  </div>
+</div>
+<div class="container-fluid" style="border-bottom-style: ridge; margin-top: 15px;">
+  <div class="row">
+
+      <div class="col-sm-6">
+          {!! Form::normalInput('chuyenmon', 'Chuyen mon', $errors,$thongtinnhanvien) !!}
+      </div>
+      <div class="col-sm-6">
+          {!! Form::normalInput('trinhdo', 'Trinh do', $errors,$thongtinnhanvien) !!}
+
+      </div>
+
+
+  </div>
+  <div class="row">
+      {!! Form::normalInput('vanbang_chungchi', 'Van bang, chung chi', $errors,$thongtinnhanvien) !!}
+  </div>
+</div>
+
+<div class="form-group link-type-depended link-page">
+ {!! Form::Label('ma_donvi', 'Ma don vi:') !!}
+ <select class="form-control" name="ma_donvi" id="ma_donvi">
+    <option value=""></option>
+    @foreach ($noibotcts as $noibotct)
+    <option value="{{ $noibotct->madonvi }}" {{ $thongtinnhanvien->ma_donvi == $noibotct->madonvi ? 'selected' : '' }}>
+        {{ $noibotct->tendonvi }}
+    </option>
+    @endforeach
+</select>
+</div>
+<div class="form-group link-type-depended link-page">
      {!! Form::Label('idtrangthai', 'Trạng thái') !!}
     <select class="form-control" name="idtrangthai" id="idtrangthai">
         <option value=""></option>
@@ -46,4 +102,14 @@
         @endforeach
     </select>
 </div>
+
+
+
+<div id="dynamicCheck">
+   <input type="button" value="Create Element" onclick="createNewElement();"/>
 </div>
+
+<div id="newElementId">New inputbox goes here:</div>
+</div>
+
+

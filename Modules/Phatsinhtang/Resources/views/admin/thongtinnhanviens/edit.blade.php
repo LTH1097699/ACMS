@@ -48,6 +48,25 @@
 @stop
 
 @push('js-stack')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<script type="text/JavaScript">
+function createNewElement() {
+    // First create a DIV element.
+    var txtNewInputBox = document.createElement('div');
+
+    // Then add the content (a new input box) of the element.
+    txtNewInputBox.innerHTML = "<input type='text' id='newInputBox'>";
+
+    // Finally put it where it is supposed to appear.
+    document.getElementById("newElementId").appendChild(txtNewInputBox);
+}
+</script>
     <script type="text/javascript">
         $( document ).ready(function() {
             $(document).keypressAction({
@@ -65,4 +84,48 @@
             });
         });
     </script>
+    <script>
+$(function() {
+  $('input[name="ngaysinh"],input[name="ngaycap"]').daterangepicker({
+    "locale": {
+        "format": "MM/DD/YYYY",
+        "separator": " - ",
+        "applyLabel": "Apply",
+        "cancelLabel": "Cancel",
+        "fromLabel": "From",
+        "toLabel": "To",
+        "customRangeLabel": "Custom",
+        "weekLabel": "W",
+        "daysOfWeek": [
+            "Su",
+            "Mo",
+            "Tu",
+            "We",
+            "Th",
+            "Fr",
+            "Sa"
+        ],
+        "monthNames": [
+            "Tháng 1",
+            "Tháng 2",
+            "Tháng 3",
+            "Tháng 4",
+            "Tháng 5",
+            "Tháng 6",
+            "Tháng 7",
+            "Tháng 8",
+            "Tháng 9",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12"
+        ],
+        "firstDay": 1
+    },
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10)
+  }, function(start, end, label) {});
+});
+</script>
 @endpush
