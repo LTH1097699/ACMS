@@ -1,10 +1,10 @@
 <div class="box-body">
-   <?php
+ <?php
 
-   $arrayGioiTinh = array("nam","nu");
+ $arrayGioiTinh = array("nam","nu");
 
-?>
-<div class="box-body">
+ ?>
+ <div class="box-body">
   <div class="container-fluid" style="border-bottom-style: ridge;">
       <div class="row">
         <div class="col-sm-3">
@@ -81,8 +81,8 @@
 </div>
 
 <div class="form-group link-type-depended link-page">
- {!! Form::Label('ma_donvi', 'Ma don vi:') !!}
- <select class="form-control" name="ma_donvi" id="ma_donvi">
+   {!! Form::Label('ma_donvi', 'Ma don vi:') !!}
+   <select class="form-control" name="ma_donvi" id="ma_donvi">
     <option value=""></option>
     @foreach ($noibotcts as $noibotct)
     <option value="{{ $noibotct->madonvi }}" {{ $thongtinnhanvien->ma_donvi == $noibotct->madonvi ? 'selected' : '' }}>
@@ -92,21 +92,21 @@
 </select>
 </div>
 <div class="form-group link-type-depended link-page">
-     {!! Form::Label('idtrangthai', 'Trạng thái') !!}
-    <select class="form-control" name="idtrangthai" id="idtrangthai">
-        <option value=""></option>
-        @foreach ($trangthais as $trangthai)
-            <option value="{{ $trangthai->id }}" {{ $thongtinnhanvien->idtrangthai == $trangthai->id ? 'selected' : '' }}>
-                {{ $trangthai->name }}
-            </option>
-        @endforeach
-    </select>
+   {!! Form::Label('idtrangthai', 'Trạng thái') !!}
+   <select class="form-control" name="idtrangthai" id="idtrangthai">
+    <option value=""></option>
+    @foreach ($trangthais as $trangthai)
+    <option value="{{ $trangthai->id }}" {{ $thongtinnhanvien->idtrangthai == $trangthai->id ? 'selected' : '' }}>
+        {{ $trangthai->name }}
+    </option>
+    @endforeach
+</select>
 </div>
 
 
 //van bang
 <div id="dynamicCheck">
-   <input type="button" value="Create Element" onclick="createNewElement();"/>
+ <input type="button" value="Create Element" onclick="createNewElement();"/>
 </div>
 
 <div id="newElementId">New inputbox goes here:</div>

@@ -27,8 +27,8 @@ class ThongtinnhanvienController extends AdminBaseController
 
 
     public function __construct(ThongtinnhanvienRepository $thongtinnhanvien,
-                                noibotctRepository $noibotct,
-                                trangthaiRepository $trangthai)
+        noibotctRepository $noibotct,
+        trangthaiRepository $trangthai)
     {
         parent::__construct();
 
@@ -72,7 +72,16 @@ class ThongtinnhanvienController extends AdminBaseController
      */
     public function store(CreateThongtinnhanvienRequest $request)
     {
-        $this->thongtinnhanvien->create($request->all());
+        $nv = new Thongtinnhanvien;
+        
+        if ($request->hasfile('hinhanh')) {
+            $path = Storage::putFile('public/modules/phatsinhtang/', $request->file('hinhanh'));
+            
+            $nv->hinhanh = $path;
+            $nv->save();
+            $nv->update($request->except(['hinhanh']));
+            
+        }
 
         return redirect()->route('admin.phatsinhtang.thongtinnhanvien.index')
         ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('phatsinhtang::thongtinnhanviens.title.thongtinnhanviens')]));
