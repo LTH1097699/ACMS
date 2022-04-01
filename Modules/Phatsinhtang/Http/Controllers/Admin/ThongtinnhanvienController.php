@@ -15,6 +15,10 @@ use Modules\Phatsinhtang\Repositories\trangthaiRepository;
 use Modules\Quanlychung\Repositories\noibotctRepository;
 
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
+use Modules\Media\Services\Movers;
+
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class ThongtinnhanvienController extends AdminBaseController
 {
@@ -47,8 +51,11 @@ class ThongtinnhanvienController extends AdminBaseController
     public function index()
     {
         $thongtinnhanviens = $this->thongtinnhanvien->all();
+        $noibotcts = $this->noibotct->all();
+        
+        $trangthais = $this->trangthai->all();
 
-        return view('phatsinhtang::admin.thongtinnhanviens.index', compact('thongtinnhanviens'));
+        return view('phatsinhtang::admin.thongtinnhanviens.index', compact('thongtinnhanviens','noibotcts','trangthais'));
     }
     
     /**
@@ -58,7 +65,7 @@ class ThongtinnhanvienController extends AdminBaseController
      */
     public function create()
     {
-        $noibotcts = $this->noibotct->all(['madonvi', 'tendonvi']);
+        $noibotcts = $this->noibotct->all();
         
         $trangthais = $this->trangthai->all();
         return view('phatsinhtang::admin.thongtinnhanviens.create', compact('noibotcts','trangthais'));
@@ -72,15 +79,17 @@ class ThongtinnhanvienController extends AdminBaseController
      */
     public function store(CreateThongtinnhanvienRequest $request)
     {
+
         $nv = new Thongtinnhanvien;
         
         if ($request->hasfile('hinhanh')) {
-            $path = Storage::putFile('public/modules/phatsinhtang/', $request->file('hinhanh'));
-            
-            $nv->hinhanh = $path;
+            $path = Storage::putFile('storage/app/public', $request->file('hinhanh'));
+            $nv->hinhanh = $request->file('hinhanh')->hashName();
             $nv->save();
-            $nv->update($request->except(['hinhanh']));
-            
+            $nv->update($request->except(['hinhanh']));          
+        }
+        else{
+            $this->thongtinnhanvien->create( $request->except('hinhanh'));
         }
 
         return redirect()->route('admin.phatsinhtang.thongtinnhanvien.index')
@@ -109,7 +118,26 @@ class ThongtinnhanvienController extends AdminBaseController
      */
     public function update(Thongtinnhanvien $thongtinnhanvien, UpdateThongtinnhanvienRequest $request)
     {
-        $this->thongtinnhanvien->update($thongtinnhanvien, $request->all());
+        $oldValue = $thongtinnhanvien->hinhanh;
+        $oldMa_nhanvien = $thongtinnhanvien->ma_nhanvien;
+        if ($request->hasfile('hinhanh')) {
+
+
+            Storage::delete('storage/app/public/'.$oldValue);
+            $path = Storage::putFile('storage/app/public', $request->file('hinhanh'));
+
+            $thongtinnhanvien->hinhanh = $request->file('hinhanh')->hashName();
+            $thongtinnhanvien->save();
+
+            $thongtinnhanvien->update($request->except(['hinhanh']));
+
+            
+        }else{
+
+            $this->thongtinnhanvien->update($thongtinnhanvien, $request->except('hinhanh'));
+        }
+
+      
 
         return redirect()->route('admin.phatsinhtang.thongtinnhanvien.index')
         ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('phatsinhtang::thongtinnhanviens.title.thongtinnhanviens')]));

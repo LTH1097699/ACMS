@@ -9,13 +9,15 @@ class CreateThongtinnhanvienRequest extends BaseFormRequest
     public function rules()
     {
         return [
-           'hinhanh' => 'required|image|mimes:jpg,jpeg,png,gif',
-           'hovaten' => 'required',
-       ];
-   }
+         'hinhanh' => 'image|mimes:jpg,jpeg,png,gif',
+         'hovaten' => 'required',
+         'ma_nhanvien' => 'required',
+         'ma_nhanvien' => 'required|unique:thongtinnhanvien,ma_nhanvien',
+     ];
+ }
 
-   public function translationRules()
-   {
+ public function translationRules()
+ {
     return [];
 }
 
@@ -26,7 +28,8 @@ public function authorize()
 
 public function messages()
 {
-    return [];
+    return [   
+    ];
 }
 
 public function translationMessages()

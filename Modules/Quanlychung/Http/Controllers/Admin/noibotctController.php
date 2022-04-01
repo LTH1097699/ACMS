@@ -55,7 +55,7 @@ class noibotctController extends AdminBaseController
     public function store(CreatenoibotctRequest $request)
     {
         $this->noibotct->create($request->all());
-
+       
         return redirect()->route('admin.quanlychung.noibotct.index')
             ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('quanlychung::noibotcts.title.noibotcts')]));
     }

@@ -8,7 +8,9 @@ class UpdatePhongbanRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [];
+        return [
+            'maphong' => 'required|unique:phongban,maphong',
+        ];
     }
 
     public function translationRules()

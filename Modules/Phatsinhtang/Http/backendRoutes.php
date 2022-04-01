@@ -55,12 +55,12 @@ $router->group(['prefix' =>'/phatsinhtang'], function (Router $router) {
         'uses' => 'chuyennoibotctController@store',
         'middleware' => 'can:phatsinhtang.chuyennoibotcts.create'
     ]);
-    $router->get('chuyennoibotcts/{chuyennoibotct}/edit', [
+    $router->get('chuyennoibotcts/{thongtinnhanvien}/edit', [
         'as' => 'admin.phatsinhtang.chuyennoibotct.edit',
         'uses' => 'chuyennoibotctController@edit',
         'middleware' => 'can:phatsinhtang.chuyennoibotcts.edit'
     ]);
-    $router->put('chuyennoibotcts/{chuyennoibotct}', [
+    $router->put('chuyennoibotcts/{thongtinnhanvien}', [
         'as' => 'admin.phatsinhtang.chuyennoibotct.update',
         'uses' => 'chuyennoibotctController@update',
         'middleware' => 'can:phatsinhtang.chuyennoibotcts.edit'
@@ -70,6 +70,13 @@ $router->group(['prefix' =>'/phatsinhtang'], function (Router $router) {
         'uses' => 'chuyennoibotctController@destroy',
         'middleware' => 'can:phatsinhtang.chuyennoibotcts.destroy'
     ]);
+
+    $router->get('chuyennoibotcts/search', [
+        'as' => 'admin.phatsinhtang.chuyennoibotct.search',
+        'uses' => 'chuyennoibotctController@search',
+        'middleware' => 'can:phatsinhtang.chuyennoibotcts.search'
+    ]);
+    
     
     
     $router->bind('trangthai', function ($id) {

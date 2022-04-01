@@ -52,10 +52,10 @@ class RegisterPhatsinhtangSidebar implements \Maatwebsite\Sidebar\SidebarExtende
             $group->item(trans('phatsinhtang::chuyennoibotcts.title.chuyennoibotcts'), function (Item $item) {
                 $item->icon('fa fa-copy');
                 $item->weight(1);
-                $item->route('admin.phatsinhtang.chuyennoibotct.create');
+                $item->route('admin.phatsinhtang.chuyennoibotct.index');
                 $item->authorize(
                      /* append */
-                     $this->auth->hasAccess('phatsinhtang.chuyennoibotcts.create')
+                     $this->auth->hasAccess('phatsinhtang.chuyennoibotcts.index')
                 );
             });
             

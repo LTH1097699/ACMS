@@ -18,28 +18,13 @@ class CreateQuanlychungPhongbansTable extends Migration
             $table->increments('id');
             // Your fields
 
-            $table->integer('maphong');
+            $table->string('maphong');
             $table->string('tenphong',100);
             $table->string('dienthoai');
 
             $table->timestamps();
         });
     }
-
-    // public function up()
-    // {
-    //     Schema::create('phongban', function (Blueprint $table) {
-    //         $table->engine = 'InnoDB';
-    //         $table->increments('id');
-    //         // Your fields
-
-    //         $table->integer('maphong');
-    //         $table->string('tenphong',100);
-    //         $table->string('dienthoai');
-
-    //         $table->timestamps();
-    //     });
-    // }
 
 
     /**

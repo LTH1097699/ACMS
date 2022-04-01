@@ -4,16 +4,11 @@ namespace Modules\Phatsinhtang\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdateThongtinnhanvienRequest extends BaseFormRequest
+class SearchchuyennoibotctRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [
-            // 'hinhanh' => 'image|mimes:jpg,jpeg,png,gif',
-            // 'hovaten' => 'required',
-            // 'ma_nhanvien' => 'required',
-            // 'ma_nhanvien' => 'required|unique:thongtinnhanvien,ma_nhanvien',
-        ];
+        return [];
     }
 
     public function translationRules()

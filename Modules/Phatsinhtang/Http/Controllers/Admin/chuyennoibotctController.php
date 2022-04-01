@@ -22,6 +22,7 @@ use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
 
 
+use DB;
 
 class chuyennoibotctController extends AdminBaseController
 {
@@ -34,9 +35,9 @@ class chuyennoibotctController extends AdminBaseController
     private $thongtinnhanvien;
 
     public function __construct(chuyennoibotctRepository $chuyennoibotct,
-                                noibotctRepository $noibotct,
-                                ChucdanhRepository $chucdanh,
-                                ThongtinnhanvienRepository $thongtinnhanvien)
+        noibotctRepository $noibotct,
+        ChucdanhRepository $chucdanh,
+        ThongtinnhanvienRepository $thongtinnhanvien)
     {
         parent::__construct();
 
@@ -50,18 +51,18 @@ class chuyennoibotctController extends AdminBaseController
         $manhanvien = $request->only(['manhanvien']);
         $data2=$request->only(['ma_donvi']);
 
-       
+        
         $thongtinnhanvien->where('ma_nhanvien','=',$manhanvien)->update($data2);
 
        //  echo "<pre/>";
        // var_dump($manhanvien);
        // var_dump($data2);
 
-       
+        
 
         return redirect()->route('admin.phatsinhtang.chuyennoibotct.create');
 
-       
+        
 
     }
 
@@ -72,12 +73,13 @@ class chuyennoibotctController extends AdminBaseController
      */
     public function index()
     {
-
         $thongtinnhanviens = $this->thongtinnhanvien->all();
 
-        $thongtinnhanviens = $this->chucdanh->all();
+        //call noibotct to select drop-down index
+        $noibotcts = $this->noibotct->all();
+        $historys = DB::select('select * from user_noitct_history ');
 
-        return view('phatsinhtang::admin.chuyennoibotcts.index', compact('thongtinnhanviens'));
+        return view('phatsinhtang::admin.chuyennoibotcts.index', compact('noibotcts','thongtinnhanviens','historys'));
     }
 
     /**
@@ -119,12 +121,11 @@ class chuyennoibotctController extends AdminBaseController
      * @param  chuyennoibotct $chuyennoibotct
      * @return Response
      */
-    public function edit(chuyennoibotct $chuyennoibotct)
+    public function edit(Thongtinnhanvien $thongtinnhanvien)
     {
-        $noibotcts = $this->noibotct->all();
-        $chucdanhs = $this->chucdanh->all();
 
-        return view('phatsinhtang::admin.chuyennoibotcts.edit', compact('chuyennoibotct','noibotcts','chucdanhs'));
+        $noibotcts = $this->noibotct->all();
+        return view('phatsinhtang::admin.chuyennoibotcts.edit', compact('thongtinnhanvien','noibotcts'));
     }
 
     /**
@@ -134,13 +135,20 @@ class chuyennoibotctController extends AdminBaseController
      * @param  UpdatechuyennoibotctRequest $request
      * @return Response
      */
-    // public function update(chuyennoibotct $chuyennoibotct, UpdatechuyennoibotctRequest $request)
-    // {
-    //     $this->chuyennoibotct->update($chuyennoibotct, $request->all());
+    public function update(chuyennoibotct $chuyennoibotct, UpdatechuyennoibotctRequest $request,Thongtinnhanvien $thongtinnhanvien)
+    {
+        $data2=$request->only(['ma_donvi']);
+        
+        $this->thongtinnhanvien->update($thongtinnhanvien, $data2);
 
-    //     return redirect()->route('admin.phatsinhtang.chuyennoibotct.index')
-    //         ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('phatsinhtang::chuyennoibotcts.title.chuyennoibotcts')]));
-    // }
+        return redirect()->route('admin.phatsinhtang.chuyennoibotct.index')
+        ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('phatsinhtang::chuyennoibotcts.title.chuyennoibotcts')]));
+
+        echo "<pre/>";
+        
+        var_dump($data2);
+
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -153,6 +161,15 @@ class chuyennoibotctController extends AdminBaseController
         $this->chuyennoibotct->destroy($chuyennoibotct);
 
         return redirect()->route('admin.phatsinhtang.chuyennoibotct.index')
-            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('phatsinhtang::chuyennoibotcts.title.chuyennoibotcts')]));
+        ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('phatsinhtang::chuyennoibotcts.title.chuyennoibotcts')]));
     }
+
+    public function search(SearchchuyennoibotctRequest $request,Thongtinnhanvien $thongtinnhanvien){
+
+     
+     $noibotcts = $this->noibotct->all();
+     $thongtinnhanviens = $thongtinnhanvien->where('ma_donvi',$request->only(['noibotct']))->get();
+
+     return view('phatsinhtang::admin.chuyennoibotcts.index', compact('noibotcts','thongtinnhanviens'));
+ }
 }

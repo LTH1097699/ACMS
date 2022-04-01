@@ -16,7 +16,7 @@ class CreatePhatsinhtangThongtinnhanviensTable extends Migration
         Schema::create('thongtinnhanvien', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            
+            $table->string('ma_nhanvien');
             $table->string('hovaten', 50);
             $table->string('gioitinh', 5);
             $table->date('ngaysinh');
@@ -36,6 +36,7 @@ class CreatePhatsinhtangThongtinnhanviensTable extends Migration
             $table->float('mucluonghientai');
             $table->integer('ma_donvi');
             $table->integer('ma_trangthai');
+            $table->string('hinhanh', 200);
 
             $table->timestamps();
         });

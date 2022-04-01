@@ -12,7 +12,7 @@
 @stop
 
 @section('content')
-    {!! Form::open(['route' => ['admin.phatsinhtang.chuyennoibotct.update', $chuyennoibotct->id], 'method' => 'put']) !!}
+    {!! Form::open(['route' => ['admin.phatsinhtang.chuyennoibotct.update', $thongtinnhanvien->id], 'method' => 'put']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="nav-tabs-custom">

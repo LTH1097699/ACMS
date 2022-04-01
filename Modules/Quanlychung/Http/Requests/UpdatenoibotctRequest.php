@@ -8,7 +8,9 @@ class UpdatenoibotctRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [];
+         return [
+            'madonvi' => 'required|unique:noibotct,madonvi',
+        ];
     }
 
     public function translationRules()

@@ -12,6 +12,7 @@ return [
         'create' => 'phatsinhtang::chuyennoibotcts.create resource',
         'edit' => 'phatsinhtang::chuyennoibotcts.edit resource',
         'destroy' => 'phatsinhtang::chuyennoibotcts.destroy resource',
+        'search' => 'phatsinhtang::chuyennoibotcts.search resource',
     ],
     'phatsinhtang.trangthais' => [
         'index' => 'phatsinhtang::trangthais.list resource',

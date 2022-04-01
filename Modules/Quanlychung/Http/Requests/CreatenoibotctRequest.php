@@ -7,8 +7,17 @@ use Modules\Core\Internationalisation\BaseFormRequest;
 class CreatenoibotctRequest extends BaseFormRequest
 {
     public function rules()
-    {
-        return [];
+    {  
+        // $rules = [
+        //     'Category' => ' required|unique:categories,Category',
+        // ];
+        // if ($this->method() == 'PUT') {
+        //     $rules['Category'] = 'required|unique:categories,Category,' . $this->category;
+        // }
+        // return $rules;
+        return [
+            'madonvi' => 'required|unique:noibotct,madonvi',
+        ];
     }
 
     public function translationRules()
@@ -23,7 +32,9 @@ class CreatenoibotctRequest extends BaseFormRequest
 
     public function messages()
     {
-        return [];
+        return [
+            'noibotct' => 'errrr',
+        ];
     }
 
     public function translationMessages()

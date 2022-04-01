@@ -37,7 +37,8 @@ $arrayGioiTinh = array("nam","nu");
 
                                 <th>Họ và tên</th>
                                 <th>Giới tính</th>
-                                <th>Địa chỉ</th>
+                                <th>Mã đơn vị</th>
+                                <th>Trạng thái</th>
 
                                 <th>{{ trans('core::core.table.created at') }}</th>
                                 <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
@@ -61,8 +62,26 @@ $arrayGioiTinh = array("nam","nu");
                                 <td>
                                     <a href="{{ route('admin.phatsinhtang.thongtinnhanvien.edit', [$thongtinnhanvien->id]) }}">
                                         
-                                        <pre>{{ strip_tags($thongtinnhanvien->diachi) }}</pre>
+                                       <!--  <pre>{{ strip_tags($thongtinnhanvien->diachi) }}</pre> -->
+                                         <?php foreach ($noibotcts as $noibotct): ?>
+                                            <?php if ($noibotct->madonvi == $thongtinnhanvien->ma_donvi ): ?>
+                                                {{ $noibotct->tendonvi }}
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+
+
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.phatsinhtang.thongtinnhanvien.edit', [$thongtinnhanvien->id]) }}">
                                         
+                                       <!--  <pre>{{ strip_tags($thongtinnhanvien->diachi) }}</pre> -->
+                                         <?php foreach ($trangthais as $trangthai): ?>
+                                            <?php if ($trangthai->id == $thongtinnhanvien->ma_trangthai ): ?>
+                                                {{ $trangthai->name }}
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+
 
                                     </a>
                                 </td>
@@ -86,7 +105,8 @@ $arrayGioiTinh = array("nam","nu");
                             <tr>
                                 <th>Họ và tên</th>
                                 <th>Giới tính</th>
-                                <th>Địa chỉ</th>
+                                <th>Mã đơn vị</th>
+                                <th>Trạng thái</th>
                                 
                                 <th>{{ trans('core::core.table.created at') }}</th>
                                 <th>{{ trans('core::core.table.actions') }}</th>
