@@ -19,7 +19,7 @@ use Modules\Quanlychung\Repositories\noibotctRepository;
 use Modules\Quanlychung\Repositories\ChucdanhRepository;
 
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
-
+use Modules\Phatsinhtang\Http\Requests\SearchchuyennoibotctRequest;
 
 
 use DB;
@@ -164,7 +164,7 @@ class chuyennoibotctController extends AdminBaseController
         ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('phatsinhtang::chuyennoibotcts.title.chuyennoibotcts')]));
     }
 
-    public function search(SearchchuyennoibotctRequest $request,Thongtinnhanvien $thongtinnhanvien){
+    public function search(Request $request,Thongtinnhanvien $thongtinnhanvien){
 
      
      $noibotcts = $this->noibotct->all();
