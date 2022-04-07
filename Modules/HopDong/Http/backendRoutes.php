@@ -5,7 +5,7 @@ use Illuminate\Routing\Router;
 
 $router->group(['prefix' =>'/hopdong'], function (Router $router) {
     $router->bind('hopdong', function ($id) {
-        return app('Modules\HopDong\Repositories\HopdongRepository')->find($id);
+        return app('Modules\Hopdong\Repositories\HopdongRepository')->find($id);
     });
     $router->get('hopdongs', [
         'as' => 'admin.hopdong.hopdong.index',

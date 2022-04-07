@@ -136,39 +136,7 @@ $router->group(['prefix' =>'/quanlychung'], function (Router $router) {
         'uses' => 'noibodonviController@destroy',
         'middleware' => 'can:quanlychung.noibodonvis.destroy'
     ]);
-    $router->bind('hopdong', function ($id) {
-        return app('Modules\Quanlychung\Repositories\hopdongRepository')->find($id);
-    });
-    $router->get('hopdongs', [
-        'as' => 'admin.quanlychung.hopdong.index',
-        'uses' => 'hopdongController@index',
-        'middleware' => 'can:quanlychung.hopdongs.index'
-    ]);
-    $router->get('hopdongs/create', [
-        'as' => 'admin.quanlychung.hopdong.create',
-        'uses' => 'hopdongController@create',
-        'middleware' => 'can:quanlychung.hopdongs.create'
-    ]);
-    $router->post('hopdongs', [
-        'as' => 'admin.quanlychung.hopdong.store',
-        'uses' => 'hopdongController@store',
-        'middleware' => 'can:quanlychung.hopdongs.create'
-    ]);
-    $router->get('hopdongs/{hopdong}/edit', [
-        'as' => 'admin.quanlychung.hopdong.edit',
-        'uses' => 'hopdongController@edit',
-        'middleware' => 'can:quanlychung.hopdongs.edit'
-    ]);
-    $router->put('hopdongs/{hopdong}', [
-        'as' => 'admin.quanlychung.hopdong.update',
-        'uses' => 'hopdongController@update',
-        'middleware' => 'can:quanlychung.hopdongs.edit'
-    ]);
-    $router->delete('hopdongs/{hopdong}', [
-        'as' => 'admin.quanlychung.hopdong.destroy',
-        'uses' => 'hopdongController@destroy',
-        'middleware' => 'can:quanlychung.hopdongs.destroy'
-    ]);
+    
     
 // append
 

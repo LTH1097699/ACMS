@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Hopdong\Providers;
+namespace Modules\Bangchamcong\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Events\LoadingBackendTranslations;
-use Modules\Hopdong\Events\Handlers\RegisterHopdongSidebar;
+use Modules\Bangchamcong\Events\Handlers\RegisterBangchamcongSidebar;
 
-class HopdongServiceProvider extends ServiceProvider
+class BangchamcongServiceProvider extends ServiceProvider
 {
     use CanPublishConfiguration;
     /**
@@ -26,10 +26,10 @@ class HopdongServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerBindings();
-        $this->app['events']->listen(BuildingSidebar::class, RegisterHopdongSidebar::class);
+        $this->app['events']->listen(BuildingSidebar::class, RegisterBangchamcongSidebar::class);
 
         $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
-            $event->load('hopdongs', array_dot(trans('hopdong::hopdongs')));
+            $event->load('bangchamcongs', array_dot(trans('bangchamcong::bangchamcongs')));
             // append translations
 
         });
@@ -37,7 +37,7 @@ class HopdongServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->publishConfig('hopdong', 'permissions');
+        $this->publishConfig('bangchamcong', 'permissions');
 
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
@@ -55,15 +55,15 @@ class HopdongServiceProvider extends ServiceProvider
     private function registerBindings()
     {
         $this->app->bind(
-            'Modules\Hopdong\Repositories\HopdongRepository',
+            'Modules\Bangchamcong\Repositories\BangchamcongRepository',
             function () {
-                $repository = new \Modules\Hopdong\Repositories\Eloquent\EloquentHopdongRepository(new \Modules\Hopdong\Entities\Hopdong());
+                $repository = new \Modules\Bangchamcong\Repositories\Eloquent\EloquentBangchamcongRepository(new \Modules\Bangchamcong\Entities\Bangchamcong());
 
                 if (! config('app.cache')) {
                     return $repository;
                 }
 
-                return new \Modules\Hopdong\Repositories\Cache\CacheHopdongDecorator($repository);
+                return new \Modules\Bangchamcong\Repositories\Cache\CacheBangchamcongDecorator($repository);
             }
         );
 // add bindings

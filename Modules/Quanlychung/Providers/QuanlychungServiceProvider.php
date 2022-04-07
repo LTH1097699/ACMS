@@ -33,7 +33,7 @@ class QuanlychungServiceProvider extends ServiceProvider
             $event->load('phongbans', array_dot(trans('quanlychung::phongbans')));
             $event->load('noibotcts', array_dot(trans('quanlychung::noibotcts')));
             $event->load('noibodonvis', array_dot(trans('quanlychung::noibodonvis')));
-            $event->load('hopdongs', array_dot(trans('quanlychung::hopdongs')));
+           
     
             // append translations
 
@@ -112,18 +112,7 @@ class QuanlychungServiceProvider extends ServiceProvider
                 return new \Modules\Quanlychung\Repositories\Cache\CachenoibodonviDecorator($repository);
             }
         );
-        $this->app->bind(
-            'Modules\Quanlychung\Repositories\hopdongRepository',
-            function () {
-                $repository = new \Modules\Quanlychung\Repositories\Eloquent\EloquenthopdongRepository(new \Modules\Quanlychung\Entities\hopdong());
-
-                if (! config('app.cache')) {
-                    return $repository;
-                }
-
-                return new \Modules\Quanlychung\Repositories\Cache\CachehopdongDecorator($repository);
-            }
-        );
+        
         
 // add bindings
 

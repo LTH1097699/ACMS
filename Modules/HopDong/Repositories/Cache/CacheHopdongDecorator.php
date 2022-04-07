@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\HopDong\Repositories\Cache;
+namespace Modules\Hopdong\Repositories\Cache;
 
-use Modules\HopDong\Repositories\HopdongRepository;
+use Modules\Hopdong\Repositories\HopdongRepository;
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 
 class CacheHopdongDecorator extends BaseCacheDecorator implements HopdongRepository

@@ -6,12 +6,12 @@ return [
     'edit resource' => 'Edit hopdongs',
     'destroy resource' => 'Destroy hopdongs',
     'title' => [
-        'hopdongs' => 'Hopdong',
-        'create hopdong' => 'Create a hopdong',
-        'edit hopdong' => 'Edit a hopdong',
+        'hopdongs' => 'Hợp đồng',
+        'create hopdong' => 'Thêm mới hợp đồng',
+        'edit hopdong' => 'Cập nhật hợp đồng',
     ],
     'button' => [
-        'create hopdong' => 'Create a hopdong',
+        'create hopdong' => 'Thêm mới hợp đồng',
     ],
     'table' => [
     ],

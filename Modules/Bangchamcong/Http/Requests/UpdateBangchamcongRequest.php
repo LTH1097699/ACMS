@@ -1,14 +1,18 @@
 <?php
 
-namespace Modules\Quanlychung\Http\Requests;
+namespace Modules\Bangchamcong\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdatehopdongRequest extends BaseFormRequest
+class UpdateBangchamcongRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [];
+        return [
+            'tonggiothucte'=>'required|int',
+            'tonggiotheoca'=>'required|int',
+             'thoigiantangca'=>'required|int'
+        ];
     }
 
     public function translationRules()
@@ -24,10 +28,13 @@ class UpdatehopdongRequest extends BaseFormRequest
     public function messages()
     {
         return [];
+      
     }
 
     public function translationMessages()
     {
-        return [];
+        return [
+          
+        ];
     }
 }

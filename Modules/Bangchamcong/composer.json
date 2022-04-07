@@ -1,5 +1,5 @@
 {
-    "name": "asgard/hopdong",
+    "name": "acms/bangchamcong",
     "description": "",
     "type": "asgard-module",
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\Hopdong\\": ".",
+            "Modules\\Bangchamcong\\": ".",
             "Modules\\": "Modules/"
         }
     },
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Hopdong\\Providers\\HopdongServiceProvider"
+                "Modules\\Bangchamcong\\Providers\\BangchamcongServiceProvider"
             ],
             "aliases": {
                 
@@ -38,7 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Hopdong\\": ""
+            "Modules\\Bangchamcong\\": ""
         }
     }
 }

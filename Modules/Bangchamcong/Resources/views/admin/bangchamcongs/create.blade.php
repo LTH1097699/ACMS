@@ -2,17 +2,17 @@
 
 @section('content-header')
     <h1>
-        {{ trans('quanlychung::hopdongs.title.edit hopdong') }}
+        {{ trans('bangchamcong::bangchamcongs.title.create bangchamcong') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-        <li><a href="{{ route('admin.quanlychung.hopdong.index') }}">{{ trans('quanlychung::hopdongs.title.hopdongs') }}</a></li>
-        <li class="active">{{ trans('quanlychung::hopdongs.title.edit hopdong') }}</li>
+        <li><a href="{{ route('admin.bangchamcong.bangchamcong.index') }}">{{ trans('bangchamcong::bangchamcongs.title.bangchamcongs') }}</a></li>
+        <li class="active">{{ trans('bangchamcong::bangchamcongs.title.create bangchamcong') }}</li>
     </ol>
 @stop
 
 @section('content')
-    {!! Form::open(['route' => ['admin.quanlychung.hopdong.update', $hopdong->id], 'method' => 'put']) !!}
+    {!! Form::open(['route' => ['admin.bangchamcong.bangchamcong.store'], 'method' => 'post']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="nav-tabs-custom">
@@ -22,13 +22,13 @@
                     @foreach (LaravelLocalization::getSupportedLocales() as $locale => $language)
                         <?php $i++; ?>
                         <div class="tab-pane {{ locale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
-                            @include('quanlychung::admin.hopdongs.partials.edit-fields', ['lang' => $locale])
+                            @include('bangchamcong::admin.bangchamcongs.partials.create-fields', ['lang' => $locale])
                         </div>
                     @endforeach
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.update') }}</button>
-                        <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.quanlychung.hopdong.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
+                        <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.create') }}</button>
+                        <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.bangchamcong.bangchamcong.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                     </div>
                 </div>
             </div> {{-- end nav-tabs-custom --}}
@@ -52,7 +52,7 @@
         $( document ).ready(function() {
             $(document).keypressAction({
                 actions: [
-                    { key: 'b', route: "<?= route('admin.quanlychung.hopdong.index') ?>" }
+                    { key: 'b', route: "<?= route('admin.bangchamcong.bangchamcong.index') ?>" }
                 ]
             });
         });

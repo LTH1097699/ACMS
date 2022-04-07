@@ -36,17 +36,11 @@
 
        </div>
        {!! Form::close() !!}
-       
-       
 
    </div>
 
    <div class="row">
-   <!--  <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-        <a href="{{ route('admin.phatsinhtang.chuyennoibotct.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
-            <i class="fa fa-pencil"></i> {{ trans('phatsinhtang::chuyennoibotcts.button.create chuyennoibotct') }}
-        </a>
-    </div> -->
+   
     <div class="btn-group pull-right" style="margin: 0 15px 15px 15px;">
      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       Lịch sử                                                                                   

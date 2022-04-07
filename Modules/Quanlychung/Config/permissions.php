@@ -25,12 +25,7 @@ return [
         'edit' => 'quanlychung::noibodonvis.edit resource',
         'destroy' => 'quanlychung::noibodonvis.destroy resource',
     ],
-    'quanlychung.hopdongs' => [
-        'index' => 'quanlychung::hopdongs.list resource',
-        'create' => 'quanlychung::hopdongs.create resource',
-        'edit' => 'quanlychung::hopdongs.edit resource',
-        'destroy' => 'quanlychung::hopdongs.destroy resource',
-    ],
+    
     
 // append
 

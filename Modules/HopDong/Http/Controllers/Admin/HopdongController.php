@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\HopDong\Http\Controllers\Admin;
+namespace Modules\Hopdong\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\HopDong\Entities\Hopdong;
-use Modules\HopDong\Http\Requests\CreateHopdongRequest;
-use Modules\HopDong\Http\Requests\UpdateHopdongRequest;
-use Modules\HopDong\Repositories\HopdongRepository;
+use Modules\Hopdong\Entities\Hopdong;
+use Modules\Hopdong\Http\Requests\CreateHopdongRequest;
+use Modules\Hopdong\Http\Requests\UpdateHopdongRequest;
+use Modules\Hopdong\Repositories\HopdongRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
 class HopdongController extends AdminBaseController
@@ -31,9 +31,9 @@ class HopdongController extends AdminBaseController
      */
     public function index()
     {
-        //$hopdongs = $this->hopdong->all();
+        $hopdongs = $this->hopdong->all();
 
-        return view('hopdong::admin.hopdongs.index', compact(''));
+        return view('hopdong::admin.hopdongs.index', compact('hopdongs'));
     }
 
     /**

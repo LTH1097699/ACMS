@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHopDongHopdongsTable extends Migration
+class CreateBangchamcongBangchamcongsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,15 @@ class CreateHopDongHopdongsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hopdong__hopdongs', function (Blueprint $table) {
+        Schema::create('bangchamcong', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your fields
+            
+            $table->string('id_nhansu');
+            $table->double('tonggiothucte');
+            $table->double('tonggiotheoca');
+            $table->double('sogioditre');
+            $table->double('thoigiantangca');
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreateHopDongHopdongsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hopdong__hopdongs');
+        Schema::dropIfExists('bangchamcong');
     }
 }

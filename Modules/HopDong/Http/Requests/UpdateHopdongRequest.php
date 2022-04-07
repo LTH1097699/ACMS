@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\HopDong\Http\Requests;
+namespace Modules\Hopdong\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 

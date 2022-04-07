@@ -1,14 +1,14 @@
 {
-    "name": "Hopdong",
-    "alias": "hopdong",
+    "name": "Bangchamcong",
+    "alias": "bangchamcong",
     "description": "",
     "keywords": [],
     "version": "1.0.0",
 	"active": 1,
     "order": 1,
     "providers": [
-        "Modules\\Hopdong\\Providers\\HopdongServiceProvider",
-        "Modules\\Hopdong\\Providers\\RouteServiceProvider"
+        "Modules\\Bangchamcong\\Providers\\BangchamcongServiceProvider",
+        "Modules\\Bangchamcong\\Providers\\RouteServiceProvider"
     ],
     "aliases": {},
     "files": [

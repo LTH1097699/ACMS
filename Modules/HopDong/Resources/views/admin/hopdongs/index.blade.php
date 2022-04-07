@@ -29,6 +29,9 @@
                         <table class="data-table table table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>Mã hợp đồng</th>
+                                <th>Thời hạn</th>
+
                                 <th>{{ trans('core::core.table.created at') }}</th>
                                 <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                             </tr>
@@ -37,6 +40,17 @@
                             <?php if (isset($hopdongs)): ?>
                             <?php foreach ($hopdongs as $hopdong): ?>
                             <tr>
+                                <td>
+                                    <a href="{{ route('admin.hopdong.hopdong.edit', [$hopdong->id]) }}">
+                                        {{ $hopdong->mahopdong }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.hopdong.hopdong.edit', [$hopdong->id]) }}">
+                                        {{ $hopdong->thoihan }}
+                                    </a>
+                                </td>
+
                                 <td>
                                     <a href="{{ route('admin.hopdong.hopdong.edit', [$hopdong->id]) }}">
                                         {{ $hopdong->created_at }}
@@ -54,6 +68,9 @@
                             </tbody>
                             <tfoot>
                             <tr>
+
+                                <th>Mã hợp đồng</th>
+                                <th>Thời hạn</th>
                                 <th>{{ trans('core::core.table.created at') }}</th>
                                 <th>{{ trans('core::core.table.actions') }}</th>
                             </tr>

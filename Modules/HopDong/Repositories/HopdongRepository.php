@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\HopDong\Repositories;
+namespace Modules\Hopdong\Repositories;
 
 use Modules\Core\Repositories\BaseRepository;
 

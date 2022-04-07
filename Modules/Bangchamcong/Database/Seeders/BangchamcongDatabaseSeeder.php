@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Hopdong\Database\Seeders;
+namespace Modules\Bangchamcong\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class HopdongDatabaseSeeder extends Seeder
+class BangchamcongDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.

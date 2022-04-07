@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Quanlychung\Http\Requests;
+namespace Modules\Bangchamcong\Http\Requests;
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class CreatehopdongRequest extends BaseFormRequest
+class CreateBangchamcongRequest extends BaseFormRequest
 {
     public function rules()
     {
