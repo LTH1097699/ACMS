@@ -27,7 +27,9 @@ class Thongtinnhanvien extends Model
         'vanban_chungchi', 
         'macongviec',  
         'maphong', 
-        'sohopdong',   
+        'sohopdong', 
+        'hieuluctungay',
+        'denngay',  
         'mangach', 
         'mucluonghientai',
         'ma_donvi',
@@ -36,9 +38,4 @@ class Thongtinnhanvien extends Model
         'hinhanh',
 
     ];
-
-    // public function menuTct()
-    // {
-    //     return $this->hasMany('Modules\Phatsinhtang\Entities\chuyennoibotct')->orderBy('position', 'asc');
-    // }
 }

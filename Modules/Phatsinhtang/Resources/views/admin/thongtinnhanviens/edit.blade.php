@@ -85,53 +85,10 @@
         });
     });
 </script>
-<!-- <script>
-    $('input[name="ngaysinh"],input[name="ngaycap"]').daterangepicker({
-        "singleDatePicker": true,
-        "showDropdowns": true,
-        "locale": {
-            "format": "MM/DD/YYYY",
-            "separator": " - ",
-            "applyLabel": "Apply",
-            "cancelLabel": "Cancel",
-            "fromLabel": "From",
-            "toLabel": "To",
-            "customRangeLabel": "Custom",
-            "weekLabel": "W",
-            "daysOfWeek": [
-            "Su",
-            "Mo",
-            "Tu",
-            "We",
-            "Th",
-            "Fr",
-            "Sa"
-            ],
-            "monthNames": [
-            "Tháng 1",
-            "Tháng 2",
-            "Tháng 3",
-            "Tháng 4",
-            "Tháng 5",
-            "Tháng 6",
-            "Tháng 7",
-            "Tháng 8",
-            "Tháng 9",
-            "Tháng 10",
-            "Tháng 11",
-            "Tháng 12"
-            ],
-            "firstDay": 1
-        },
-        "startDate": "03/20/2022",
-        "endDate": "03/26/2022"
-    }, function(start, end, label) {
-      console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-  });
-</script> -->
+
 <script>
 $(function() {
-  $('input[name="ngaysinh"],input[name="ngaycap"]').daterangepicker({
+  $('input[name="ngaysinh"],input[name="ngaycap"],input[name="hieuluctungay"],input[name="denngay"]').daterangepicker({
    singleDatePicker: true,
         showDropdowns: true,
         locale: {
@@ -172,5 +129,85 @@ $(function() {
     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   });
 });
+</script>
+
+<script>
+    window.onload=function()
+    {      
+        var end_date = new Date(document.getElementById('endDay').value);
+        var today = new Date();
+        
+        console.log(end_date+"aaaaaaaa");
+        console.log(today);       
+        var time_difference = end_date.getTime() - today.getTime();
+   
+    var days_difference = time_difference / (1000*3600*24);
+    console.log(days_difference);
+    console.log(time_difference);
+    if(days_difference>0){
+        document.getElementById('resultss').value = days_difference;
+    }else{
+         document.getElementById('resultss').value = 0;
+    }
+    
+}
+</script>
+<script>
+
+    $('#endDay').on('change',function(){
+
+        var today = new Date();
+        var start_date = new Date(document.getElementById('startDay').value);
+        var end_date = new Date(document.getElementById('endDay').value);
+
+        console.log(start_date);
+        console.log(end_date);
+
+        var time_difference = end_date.getTime() - today.getTime();
+    //Here we will divide the above time difference by the no of miliseconds in a day
+    var days_difference = time_difference / (1000*3600*24);
+    console.log(days_difference);
+        if(days_difference>0){
+        document.getElementById('resultss').value = days_difference;
+        }else{
+            document.getElementById('resultss').value = 0;
+        }
+});
+</script>
+<script>
+
+    $('#startDay').on('change',function(){
+
+        var today = new Date();
+        var start_date = new Date(document.getElementById('startDay').value);
+        var end_date = new Date(document.getElementById('endDay').value);
+
+        
+        console.log(end_date);
+
+        
+    console.log(days_difference);
+    if(start_date<= today){
+        console.log("start_date < today");
+        var time_difference = end_date.getTime() - today.getTime();
+        var days_difference = time_difference / (1000*3600*24);
+        if(days_difference>0){
+        document.getElementById('resultss').value = days_difference;
+         }else{
+            document.getElementById('resultss').value = 0;
+         }   
+    }else{
+        console.log("start_date lon hon today");
+        var time_difference = end_date.getTime() - start_date.getTime();
+        var days_difference = time_difference / (1000*3600*24);
+         if(days_difference>0){
+        document.getElementById('resultss').value = days_difference;
+         }else{
+            document.getElementById('resultss').value = 0;
+         }
+    }   
+
+});
+
 </script>
 @endpush

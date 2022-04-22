@@ -10,7 +10,7 @@
 </ol>
 @stop
 <?php
-$searchhh = array("sogioditre"=>"di tre","thoigiantangca"=>"tang ca");
+$searchhh = array("sogioditre"=>"Đi trễ","thoigiantangca"=>"Tăng ca");
 $bbs="";
 ?>
 @section('content')
@@ -33,7 +33,7 @@ $bbs="";
                   <div class="col-md-3">
                      <div class="form-outline">
                         <label class="form-label" for="form1">Tìm kiếm theo ngày</label>
-                        <input type="text" class="form-control"  aria-label="Search" name="created_at" autocomplete="off"/>
+                        <input type="text" class="form-control" readonly  aria-label="Search" name="created_at" autocomplete="off"/>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,11 @@ $bbs="";
                                 <tr>
                                     <td>
                                         <a href="{{ route('admin.bangchamcong.bangchamcong.edit', [$bangchamcong->id]) }}">
-                                            {{ $bangchamcong->id_nhansu }}
+                                            <?php foreach ($thongtinnhanviens as $thongtinnhanvien): ?>
+                                            <?php if ($thongtinnhanvien->id == $bangchamcong->id_nhansu ): ?>
+                                                {{ $thongtinnhanvien->ma_nhanvien }}
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                         </a>
                                     </td>
                                     <td>

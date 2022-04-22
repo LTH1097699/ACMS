@@ -138,6 +138,49 @@
 </div>
 
 </div>
+{{-- //hop dong --}}
+  <div class="container-fluid" style="border-bottom-style: ridge; margin-top: 15px;">
+    <div class="row">
+
+      <div class="col-sm-3">
+        {!! Form::Label('sohopdong', 'Mã hợp đồng') !!}
+         <select class="form-control" name="sohopdong" id="sohopdong">
+          <option value=""></option>
+          @foreach ($hopdongs as $hopdong)
+          <option value="{{ $hopdong->id }}" {{ $thongtinnhanvien->sohopdong == $hopdong->id ? 'selected' : '' }}>
+            {{ $hopdong->mahopdong }}
+          </option>
+          @endforeach
+        </select>
+      </div>
+      <div class="col-sm-3">
+
+        <div class="form-group ">
+          <label for="ngaysinh">Hiệu lực từ ngày</label>
+          <input  name="hieuluctungay" type="text" id="startDay" class="form-control" readonly value="{{$thongtinnhanvien->hieuluctungay}}">
+         
+        </div>
+      </div>
+      <div class="col-sm-3">
+
+        <div class="form-group ">
+          <label for="ngaysinh">Đến ngày</label>
+          <input  name="denngay" type="text" id="endDay" class="form-control" readonly value="{{$thongtinnhanvien->denngay}}">
+         
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+
+        <div class="form-group ">
+          <label for="ngaysinh">Còn lại</label>
+          <input  name="resultss" type="text" id="resultss" class="form-control" readonly>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 <!-- 
 <div id="dynamicCheck">

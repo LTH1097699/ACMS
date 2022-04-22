@@ -85,55 +85,13 @@
         });
     });
 </script>
-<!-- <script>
-    $('input[name="ngaysinh"],input[name="ngaycap"]').daterangepicker({
-        "singleDatePicker": true,
-        "showDropdowns": true,
-        "locale": {
-            "format": "MM/DD/YYYY",
-            "separator": " - ",
-            "applyLabel": "Apply",
-            "cancelLabel": "Cancel",
-            "fromLabel": "From",
-            "toLabel": "To",
-            "customRangeLabel": "Custom",
-            "weekLabel": "W",
-            "daysOfWeek": [
-            "Su",
-            "Mo",
-            "Tu",
-            "We",
-            "Th",
-            "Fr",
-            "Sa"
-            ],
-            "monthNames": [
-            "Tháng 1",
-            "Tháng 2",
-            "Tháng 3",
-            "Tháng 4",
-            "Tháng 5",
-            "Tháng 6",
-            "Tháng 7",
-            "Tháng 8",
-            "Tháng 9",
-            "Tháng 10",
-            "Tháng 11",
-            "Tháng 12"
-            ],
-            "firstDay": 1
-        },
-        
-    }, function(start, end, label) {
-      console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-  });
-</script> -->
+
 <script>
-$(function() {
-  $('input[name="ngaysinh"],input[name="ngaycap"]').daterangepicker({
-   singleDatePicker: true,
-        showDropdowns: true,
-        locale: {
+    $(function() {
+      $('input[name="ngaysinh"],input[name="ngaycap"],input[name="hieuluctungay"],input[name="denngay"]').daterangepicker({
+         singleDatePicker: true,
+         showDropdowns: true,
+         locale: {
             "format": "YYYY-MM-DD",
             "separator": " - ",
             "applyLabel": "Apply",
@@ -167,9 +125,27 @@ $(function() {
             ],
             "firstDay": 1
         },
-  }, function(start, end, label) {
-    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    }, function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
   });
+</script>
+<script>
+
+    $('#startDay,#endDay').on('change',function(){
+        var start_date = new Date(document.getElementById('startDay').value);
+        var end_date = new Date(document.getElementById('endDay').value);
+
+        console.log(start_date);
+        console.log(end_date);
+
+        var time_difference = end_date.getTime() - start_date.getTime();
+   
+    var days_difference = time_difference / (1000*3600*24);
+    console.log(days_difference);
+    
+    document.getElementById('resultss').value = days_difference;
+
 });
 </script>
 @endpush

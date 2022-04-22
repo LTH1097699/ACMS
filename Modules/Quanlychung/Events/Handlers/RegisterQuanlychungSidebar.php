@@ -84,6 +84,15 @@ class RegisterQuanlychungSidebar implements \Maatwebsite\Sidebar\SidebarExtender
                     $this->auth->hasAccess('phatsinhtang.trangthais.index')
                 );               
             });
+            $group->item(trans('hopdong::hopdongs.title.hopdongs'), function (Item $item) {
+                $item->icon('fa fa-copy');
+                $item->weight(10);
+                $item->route('admin.hopdong.hopdong.index');
+                $item->authorize(
+                   /* append */
+                   $this->auth->hasAccess('hopdong.hopdongs.index')
+               );
+            });
 
         });
 
